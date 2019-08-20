@@ -1,0 +1,26 @@
+get is for optaining a web page
+get request to ask a server to give u a web page
+
+post request you will not be able to cache any result
+
+port to identify a specfifc process in a network
+
+page 200 means everything is correct the reuqtes and been perfomred correclty
+
+utf-8 is the encoding file
+
+step in html is the increment of the number 0.01 for example
+
+in html form method = POST
+
+in get the query string will be in the URI while in post no because we are sending it in body
+
+res.on is an event handler when something comes in to the server
+
+chunk is similar to function
+
+chunck arives in a storage in a buffer 
+
+end event means the data recieved
+
+() call back function

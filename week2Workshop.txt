@@ -1,0 +1,41 @@
+
+Q1)
+
+1. 'npm install' which will install all the items in the dependencies
+2. 'npm init'
+3. 'npm install packageName'. The package name can be declared up by: let packageName = require('packageName');
+
+
+Q2)
+
+1. The query string is:type=images&count=20
+2. The protocol is: http
+3. The port number is: 8888
+4. The pathname is:systemarchive/2018
+5. The server address is:localhost
+
+
+
+Q3)
+
+let http = require('http');
+
+http.createServer(function(req,res){
+
+  let pathname = req.url;
+  
+  if (pathname === "./unit") {
+    res.write("Hello from FIT2095");
+  }
+
+  else if(pathname === "./year"){
+    res.write("its 2019");
+  }
+  else {
+    res.write("Have a good day!!! ");
+  }
+
+    res.end();
+
+}).listen(6789);
+

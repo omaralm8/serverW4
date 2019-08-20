@@ -1,0 +1,5 @@
+make a file called .gitignore and type in .node_modules
+
+indexOf retruns -1 if its is not found in the array so we check if index > -1 that means it is found
+
+for sum return sum at end

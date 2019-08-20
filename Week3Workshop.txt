@@ -1,0 +1,50 @@
+Q1) Assume you have a new project, list all the required 
+steps or commands to include Express.js in your project?
+
+
+ANSWER:
+
+1- In the terminal type npm init
+2- In the terminal type npm install express
+3- In the js file code: let express = require ('express'); //A reference to the package I recieved
+4- In the js file code: let app = express(); // get a new instance of express
+
+
+
+
+
+
+
+
+Q2) Using Node.js, develop a web application that uses the Express.js to return 
+the result of the arthimetic operations add and sub
+
+URL Syntax:
+
+ANSWER:
+
+let express = require('express');
+let app = express();
+var result= 0;
+
+app.get("/math/:operator/:operand1/:operand2",function(req,res) {
+
+ let operand1 = parseInt(req.params.operand1);
+ let operand2 = parseInt(req.params.operand2);
+
+ if(req.params.operator === 'add'){
+    result= = operand1 + operand2;
+    res.send("Output: " + result= );  
+ }
+
+ else if(req.params.operator == 'sub'){
+    result= = operand1 - operand2;
+    res.send("Output: " + result= );
+ }
+ else{	
+	res.send("Unknown Operation");  
+ }
+ 
+});
+
+app.listen(8080); 
