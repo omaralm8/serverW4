@@ -88,7 +88,6 @@ function generateList(array){
 
 
 function getID (){
-
     let id;
     id = Math.round(Math.random() * 1000);
     return id;

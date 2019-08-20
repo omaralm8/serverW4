@@ -1,5 +1,7 @@
-make a file called .gitignore and type in .node_modules
+Express in one file is a traffic 
 
-indexOf retruns -1 if its is not found in the array so we check if index > -1 that means it is found
+so use router will help in maintainice and will not make traffic
 
-for sum return sum at end
+module.exports creating a seperate module and exporting the router which contains the points
+
+if any request arrive then send it to the router to handle it
