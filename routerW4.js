@@ -28,7 +28,6 @@ router.get(("/listAllItems") , function(req,res){
 
 router.get(("/deleteItem/:id") , function(req,res){
     let id = parseInt(req.params.id);
-    let index = db.indexOf(id);
     let flag = false;
     let msg = "";
 
