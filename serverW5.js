@@ -15,7 +15,6 @@ app.use(bodyParser.urlencoded({
 
 
 
-
 app.get("/" , function (req , res){
     let fileName = viewPath + '/index.html';
     res.sendFile(fileName);
