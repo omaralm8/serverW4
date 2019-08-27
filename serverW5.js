@@ -18,16 +18,11 @@ app.use(bodyParser.urlencoded({
 app.get("/" , function (req , res){
     let fileName = viewPath + '/index.html';
     res.sendFile(fileName);
-
-
 });
 
 app.get("/addTask" , function (req , res){
     let fileName = viewPath + '/addTask.html';
     res.sendFile(fileName);
-
-
-
 
 });
 
@@ -36,8 +31,6 @@ app.get("/listTasks" , function (req , res){
     res.render(fileName , {
         db : db
     });
-
-
 
 });
 
