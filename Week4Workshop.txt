@@ -1,0 +1,88 @@
+
+Q1) You are building a web app that uses Express.js and you want to log all the
+incoming requests in a short format automatically. What are the steps to do that?
+
+You are not supposed to write the full source code
+Support your steps with commands or statments:
+
+
+
+
+ANSWER:
+
+Code in the terminal:
+
+	npm install morgan 
+
+Code the morgan:
+
+	let morgan = require('morgan');
+	app.use(morgan('short'));
+
+
+
+
+
+Q2) What are the differences between res.sendFile() and res.render()?
+Support your answer with examples
+
+res.sendFile('index.html');  
+res.render('index' , {
+		username: "Tim"
+});
+
+
+ANSWER:
+
+The difference is that the render works when we have a templating engine in the html
+file and generate and output. While the sendFile will just send the html file to view the
+content to the user
+
+res.sendFile('index.html');  // takes one parameter the html file name
+res.render('index.html' , {
+		username: "Tim"
+}); // takes the html file and the data I wanna send to the html file
+and <%= username > should be added to the html file when using the render
+
+
+
+
+
+Q3) Using the Node.js and Express, develop a web app (server side only) that has the
+ability to:
+
+- render HTML files
+- serve static assets in a directory named 'public'
+- Respond with a string contains the current date for any request with pathname
+	='/getdate'
+- Respond with a string contains the current Time for any request with pathname
+	='/getTime'
+
+ANSWER:
+
+
+let express = require('express');
+let app = express();
+let morgan = require('morgan');
+let date = new Date();
+
+
+
+app.use(express.static('public');
+
+app.get('/getdate', function(req,res){
+
+	res.render('index.html' , { date: date.getDate()})
+
+});
+
+app.get('/getTime', function(req,res){
+
+	res.render('index.html' , { date: date.getTime()})
+
+});
+
+app.listen(8080);
+
+
+	

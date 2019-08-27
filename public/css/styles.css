@@ -1,0 +1,42 @@
+body {
+    background: url(bg2.jpg);
+    background-repeat: no-repeat;
+    background-size: 1000px 1000px;
+   }
+
+h1{
+    font-family: "Comic Sans MS";
+    font-size: 50px;
+    color: gray;
+}
+
+p
+{
+   font-family: "Comic Sans MS";
+    font-size: 20px;
+    color: gray;
+}
+
+#t1{
+    font-family: "Trebuchet MS";
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #t1 td, #t1 th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #t1 tr:nth-child(even){
+      background-color: whitesmoke;
+    }
+  
+  
+  #t1 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: gray;
+    color: white;
+  }

@@ -1,0 +1,45 @@
+<html>
+        <head>
+                <link rel="stylesheet" href="styles.css">
+        </head>
+    <body>
+            <center>  
+                        <h1> List All Tasks </h1>
+             
+
+             <p>
+                <table id='t1'>
+                    <tr>
+                        <th>
+                            Task Name
+                        </th>
+                        <th>
+                            Task Due Date
+                        </th>
+                        <th>
+                            Task Description
+                        </th>
+                    </tr>
+                    
+                    <% for (let i=0; i < db.length; i++) {%>
+                        <tr>
+                            <td><%= db[i].name%></td>
+                            <td><%= db[i].due%></td>
+                            <td><%= db[i].desc%></td>
+
+                        </tr>
+
+                    <% } %>
+
+                </table>
+
+             </p>
+
+            </center>
+             <p> 
+                    <br> Home Page: <a href = '/'> Home Page </a>
+                    <br> Add New task: <a href = '/addTask'> Add new Task</a>
+                    
+            </p>
+    </body>
+</html>

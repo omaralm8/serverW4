@@ -1,0 +1,3 @@
+app.engine to pass the job to ejs
+
+pass db
