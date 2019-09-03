@@ -1,0 +1,24 @@
+<html>
+        <head>
+                <link rel="stylesheet" href="styles.css">
+        </head>
+        <body>
+                <form action="updateStatus" method="POST">
+                    <br> ID: <input type="text" name="id"/>
+                    <br> New Status <select name="newStatus">
+                            <option value = "InProgress">InProgress</option>
+                            <option value = "Completed">Completed</option>
+                            </select>
+                    <button>Update</button>
+                </form>
+
+            <p>
+                    <br> Home Page: <a href = '/'> Home Page </a>
+                    <br> Add New taks: <a href = '/addTask'> Add new Task</a>
+                    <br> List all the tasks: <a href = '/listTasks'> List all Tasks</a>
+                    <br> Delete Task by ID: <a href = '/deleteTaskID'> Delete Task </a>
+                    <br> Delete All Completed Tasks: <a href = '/deleteCompleted'> Delete Completed Task</a>
+            </p>
+            
+        </body>
+</html>

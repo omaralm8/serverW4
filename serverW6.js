@@ -50,9 +50,51 @@ app.get("/listTasks" , function (req , res){
     })
 });
 
+
+app.get("/deleteTaskID" , function (req , res){
+    let fileName = viewPath + '/deleteTaskID.html';
+    res.sendFile(fileName);
+});
+
+app.get("/updateStatus" , function (req , res){
+    let fileName = viewPath + '/updateStatus.html';
+    res.sendFile(fileName);
+});
+
+app.get("/deleteCompleted" , function (req , res){
+    let fileName = viewPath + '/deleteCompleted.html';
+    res.sendFile(fileName);
+});
+
 app.post("/addNewTask" , function(req,res){
     col.insertOne(req.body);
     res.redirect("/listTasks");
+});
+
+app.post("/deleteTaskID" , function(req,res){
+    let id = ObjectId(req.body.id)
+    let query = { _id: id};
+    col.deleteOne(query, function (err,obj){
+        res.redirect("/listTasks");
+    });
+
+});
+
+app.post("/deleteCompleted" , function(req,res){
+    let query = { status: "Completed"};
+    col.deleteMany(query, function (err,obj){
+        res.redirect("/listTasks");
+    });
+});
+
+app.post("/updateStatus" , function(req,res){
+    let id = ObjectId(req.body.id);
+    let status = req.body.newStatus;
+    let query = { _id: id};
+
+        col.updateOne(query,{$set: {status: status}},{upsert: false}  ,function (err,obj){
+           res.redirect("/listTasks");
+        });
 });
 
 app.get("/deleteCustID/:id" , function(req,res){
