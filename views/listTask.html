@@ -11,10 +11,19 @@
                 <table id='t1'>
                     <tr>
                         <th>
+                            Task ID
+                        </th>
+                        <th>
                             Task Name
                         </th>
                         <th>
+                            Task Assigned to
+                        </th>
+                        <th>
                             Task Due Date
+                        </th>
+                        <th>
+                                Task Status
                         </th>
                         <th>
                             Task Description
@@ -23,8 +32,11 @@
                     
                     <% for (let i=0; i < db.length; i++) {%>
                         <tr>
+                            <td><%= db[i]._id%></td>
                             <td><%= db[i].name%></td>
+                            <td><%= db[i].taskHandler%></td>
                             <td><%= db[i].due%></td>
+                            <td><%= db[i].status%></td>
                             <td><%= db[i].desc%></td>
 
                         </tr>

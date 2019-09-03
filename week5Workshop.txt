@@ -1,0 +1,142 @@
+Notes:
+
+npm init
+npm install MongoDB
+npm install express
+npm install body-parser
+
+
+
+Q1) 
+
+	a- MongoDB is a document database. What are the 'document' and 'collection'
+		in MongoDB?
+	b- MongoDB document is not a JSON object. Elaborate this statment.
+
+
+ANSWER:
+
+a- Collection is like a table in relational DB but table have rows and column 
+	but here we have different structure so we call it a collection. 
+	While each row is a document.
+
+In other words:
+
+Collection: is set of documents
+Document: is a data structure composed of field and value pairs.
+
+
+b- It is similar to JSON, but it is bigger because JSON only contains of primitive 
+	datatypes. While here it have more features than a JSON object. It may include
+	the primitive data types, and other data types such as dates, timestamp
+	,regular expressions and binrary data, More over it can include 
+	other documents, arrays , and arrays of documents.
+
+
+
+
+Q2)
+
+	Assume: 
+	db- a ref to a database
+	flights- is a collection with the following fields: flightDate, from, to, ariline
+		, and cost.
+
+	Write full Mongo statments:
+		1. Find all the flights with 'Va' airline
+		2. Find a flight between SA and SYD (from)
+		3. Double the cost of flights between 'SYD' and 'NT' (from)
+		4. Delete all the flights with cost less than 300
+
+callback body leave blank
+
+ANSWER:
+
+1. Find all the flights with 'VA' airline:
+
+app.get('/getAllVA',function(req,res){
+	let query = {airline:"VA"};
+	flights.find(query).toArray(function(err,data){
+		
+		res.send(data);
+	});
+});
+
+2. Find a flight between 'SA' and 'SYD':
+
+app.get('/getBetween',function(req,res){
+	let query = {$and [{from:"SA"}, {to: "SYD"}]};
+	flights.find(query).toArray(function(err,data){
+		res.send(data);
+	});
+});
+
+
+3. Double the cost of flights between 'SYD' and 'NT':
+
+app.get('/updateFlight',function(req,res){
+
+	flights.updateMany({$and [{from:"SYD"}, {to: "NT"}]},{$mul: {cost: 2 } }, {upsert: false},
+	 (function(err,data){
+		res.send(data);
+	});
+
+});
+
+
+
+4. Delete all the flights with cost less than 300:
+
+
+app.get('/deleteFlight',function(req,res){
+	let query = {cost:{$lt: 300}};
+	flights.deleteMany(query, (function(err,data){
+		res.send(data);
+	});
+});
+
+
+
+
+
+
+Q3) Using Node.js, Express, and MongoDB, write a server side code that handles the forms's
+	request and inserts a document into a collection named 'flights' in a database
+	name 'travel' which is hosted by a machine with IP= '42.128.78.49' and listens to
+	port 55312.
+
+ANSWER:
+
+let express = require('express');
+let app = express();
+let mongodb = require('mongodb');
+let mongodbClient = mongodb.MongoClient;
+let url = "mongodb://42.128.78.49:55312";
+let db = null;
+let col = null;
+let viewsPath = __dirname + '/views/';
+let bodyParser = require('body-parser');
+
+app.use(bodyParser.urlecnoded({ extended:false }));
+
+mongodbClient.connect(url,{useNewUrlParser: true} ,function(err ,client){
+	db= client.db('travel');
+	col = db.collection('flights');
+
+});
+
+app.get('/', function(req,res){
+	res.sendFile(viewsPath + 'index.html');
+});
+
+app.post('/bookingpost', function(req,res){
+	col.inserOne(req.body);
+	res.sendFile(viewsPath + 'index.html');
+});
+
+app.listen(8080);
+
+
+
+
+

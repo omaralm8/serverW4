@@ -1,0 +1,19 @@
+npm install mongodb --save
+
+let mongodb= require('mongodb');
+let mongoClient = mongodb.MongoClient;
+let db = null;
+let coll = null;
+
+const url = 'mongodb://localhost:27017';
+
+mongoClient.connect(url , {userNewParser : true} , (err,client) => {
+
+
+});
+
+col.find({}); sending an empty object.
+
+upsert: true , if nothing matches the phone number add a new record
+
+nModified to know how many rows have been updated.

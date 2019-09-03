@@ -11,7 +11,12 @@
                 <form action = "addNewTask" method="POST">
                     <p>
                         <br> Task Name: <input type="text" name="name"/>
+                        <br> Task Assigned to: <input type="text" name="taskHandler"/>
                         <br> Task Due: <input type="date" name="due"/>
+                        <br> Task Status: <select name="status">
+                                                <option value = "InProgress">In Progress</option>
+                                                <option value = "Completed">Completed</option>
+                                                </select>
                         <br> Task Desc: <input type="text" name="desc"/>
                     </p>
                     <button>Submit</button>
