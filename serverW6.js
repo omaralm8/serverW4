@@ -41,6 +41,19 @@ app.get("/addTask" , function (req , res){
     res.sendFile(fileName);
 });
 
+app.get("/deleteOldComplete" , function (req , res){
+    let today = new Date(); 
+    let query = { 
+            status: "Completed",
+            due: {$lt: today}
+        };
+
+    col.deleteMany(query, function (err,obj){
+        res.redirect("/listTasks");
+    });
+   console.log(today);
+});
+
 app.get("/listTasks" , function (req , res){
     let fileName = viewPath + '/listTask.html';
     col.find({}).toArray((err,result) => {
@@ -67,7 +80,8 @@ app.get("/deleteCompleted" , function (req , res){
 });
 
 app.post("/addNewTask" , function(req,res){
-    col.insertOne(req.body);
+    let obj={name: req.body.name, taskHandler: req.body.taskHandler, due: new Date(req.body.due),status: req.body.status , desc: req.body.desc}
+    col.insertOne(obj);
     res.redirect("/listTasks");
 });
 
