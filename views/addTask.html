@@ -11,7 +11,6 @@
                 <form action = "addNewTask" method="POST">
                     <p>
                         <br> Task Name: <input type="text" name="name"/>
-                        <br> Task Assigned to: <input type="text" name="taskHandler"/>
                         <br> Task Due: <input type="date" name="due"/>
                         <br> Task Status: <select name="status">
                                                 <option value = "InProgress">In Progress</option>
@@ -22,7 +21,10 @@
                     <button>Submit</button>
                 </form>
             <p>
-                    <br> Home Page: <a href = '/'> Home Page </a>
+                    
+                <br> Home Page: <a href = '/'> Home Page </a>
+                <br> Add new Developer: <a href = '/addDev'> Add new Developer</a>
+                <br> List All developers: <a href = '/getDev'> List all developers</a>
                     <br> List all the tasks: <a href = '/listTasks'> List all Tasks</a>
                     <br> Delete Task by ID: <a href = '/deleteTaskID'> Delete Task </a>
                     <br> Delete All Completed Tasks: <a href = '/deleteCompleted'> Delete Completed Task</a>

@@ -1,0 +1,98 @@
+Notes:
+
+npm init
+npm install mongoose
+
+Q1)
+
+	1. List three advantages of using Mongoose to manage MongoDB database.
+	2. Briefly describe what is Object-relational mapping (ORM)?
+
+
+
+Answer:
+
+1. 
+	a- Mongoose provides schema where we can define a data types
+	b- Mongoose allow you to have data validation
+	c- Mongoose allow you to have data pre processing
+
+2. it is a way for converting the data between incompatible type systems using object
+	oriented.
+
+
+
+
+Q2) Write a schema that meets the following specs:
+
+	- Has fields: _id, from, to, airline, cost.
+	- from, to, and airline are strings and requried fields
+	- The defualt value of from is 'Sydney'
+	- cost should always be positive
+
+
+Answer:
+
+let airlineSchema = mongoose.schema({
+	
+	
+	to:{
+		type:String, 
+		required: true
+	},
+	airline:{
+		type:String,
+		required: true
+	},
+	cost:{
+		type:Number,
+		min:0
+	},
+	created:{
+		type:String,
+		default: "Sydney"
+	}
+});
+
+
+
+Q3) Assume the following:
+
+	- you have a database name 'Travel' hosted in a machine with IP= '128.0.15.66' with
+		port = 886655
+
+	- You have implemented a schema in a file named 'travelschema.js' that represents a
+		collection with five fields: _id, from, to, airline, and cost.
+
+
+Answer:
+
+let mongoose= require('mongoose');
+let url="mongodb://128.0.15.66:886655/Travel";
+let Flight = require('./models/travelschema'
+
+mongoose.connect(url, function(err){
+	if(err){
+		console.log(err);
+	}
+	else{
+		let flight = new Flight({
+			from: 'MEL',
+			to: 'JNB',
+			airline: 'VA',
+			cost: 2500
+		});
+		
+		flight.save(function(err)({
+			
+			if(err){
+				console.log(err);
+			}
+			else{
+				console.log('Saved!!!'); 
+			}
+		});
+	}
+});
+
+

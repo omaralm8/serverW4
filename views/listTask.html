@@ -17,13 +17,13 @@
                             Task Name
                         </th>
                         <th>
-                            Task Assigned to
+                            Developer ID
                         </th>
                         <th>
                             Task Due Date
                         </th>
                         <th>
-                                Task Status
+                            Task Status
                         </th>
                         <th>
                             Task Description
@@ -34,7 +34,7 @@
                         <tr>
                             <td><%= db[i]._id%></td>
                             <td><%= db[i].name%></td>
-                            <td><%= db[i].taskHandler%></td>
+                            <td><%= db[i].assign%></td>
                             <td><%= db[i].due%></td>
                             <td><%= db[i].status%></td>
                             <td><%= db[i].desc%></td>
@@ -50,6 +50,8 @@
             </center>
              <p> 
                     <br> Home Page: <a href = '/'> Home Page </a>
+                    <br> Add new Developer: <a href = '/addDev'> Add new Developer</a>
+                    <br> List All developers: <a href = '/getDev'> List all developers</a>
                     <br> Add New taks: <a href = '/addTask'> Add new Task</a>
                     <br> Delete Task by ID: <a href = '/deleteTaskID'> Delete Task </a>
                     <br> Delete All Completed Tasks: <a href = '/deleteCompleted'> Delete Completed Task</a>

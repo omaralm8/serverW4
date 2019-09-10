@@ -1,0 +1,53 @@
+<html>
+        <head>
+                <link rel="stylesheet" href="styles.css">
+        </head>
+    <body>
+            <center>  
+                        <h1> List All Developers </h1>
+             
+
+             <p>
+                <table id='t1'>
+                    <tr>
+                        <th>
+                            Developer ID
+                        </th>
+                        <th>
+                            Developer Name
+                        </th>
+                        <th>
+                            Developer level
+                        </th>
+                        <th>
+                             Developer Address
+                        </th>
+                    </tr>
+                    
+                    <% for (let i=0; i < db.length; i++) {%>
+                        <tr>
+                            <td><%= db[i]._id%></td>
+                            <td><%= db[i].name%></td>
+                            <td><%= db[i].level%></td>
+                            <td><%= db[i].address%></td>
+
+                        </tr>
+
+                    <% } %>
+
+                </table>
+
+             </p>
+
+            </center>
+             <p> 
+                <br> Home Page: <a href = '/'> Home Page </a>
+                <br> Add new Developer: <a href = '/addDev'> Add new Developer</a>
+                <br> Add New taks: <a href = '/addTask'> Add new Task</a>
+                <br> List all the tasks: <a href = '/listTasks'> List all Tasks</a>
+                <br> Delete Task by ID: <a href = '/deleteTaskID'> Delete Task </a>
+                <br> Delete All Completed Tasks: <a href = '/deleteCompleted'> Delete Completed Task</a>
+                    
+            </p>
+    </body>
+</html>
